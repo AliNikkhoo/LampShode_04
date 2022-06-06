@@ -45,6 +45,7 @@ namespace ServiceHost.Areas.Administration.Pages.Accounts.Account
 
         public JsonResult OnPostCreate(CreateAccount command)
         {
+            //
             var result = _accountApplication.Careat(command);
             return new JsonResult(result);
         }
