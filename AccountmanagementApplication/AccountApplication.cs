@@ -59,7 +59,8 @@ namespace AccountmanagementApplication
             if (account == null)
                 return operation.Faild(ApplicationMessages.RecordNontFound);
 
-            if (_accountRepository.Exists(x => x.UserName == command.UserName || x.Mobile == command.Mobile &&x.Id==command.Id))
+            if (_accountRepository.Exists(x =>( x.UserName == command.UserName 
+                                                || x.Mobile == command.Mobile) &&x.Id==command.Id))
                 return operation.Faild(ApplicationMessages.DuplicatedRecord);
 
             account.Edit(command.FullName, command.UserName, 
